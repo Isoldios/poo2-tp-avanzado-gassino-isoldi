@@ -10,5 +10,5 @@ test("Etapa del paquete",()=>{
 });
 test("Productos del paquete",()=>{
     const paquete = new Paquete("Punto de destino 1",[["Tornillo",10],["Destornillador",2]]);
-    expect(paquete.productos()).toStrictEqual(["Tornillo","Destornillador"]);
+    expect(paquete.productosDelPaquete()).toStrictEqual([["Tornillo",10],["Destornillador",2]]);
 });
