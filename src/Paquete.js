@@ -1,7 +1,7 @@
 function Paquete(destino,productos){
     this.destino=destino;
     this.productos=productos;
-    this.componente=["Salida Local","Facturacion","Calidad","Distribucion"];
+    this.componente=["Salida Local","Facturacion","Calidad","Distribucion",this.destino];
     this.numeroComponente=0;
 
     this.componenteEtapa=function(){

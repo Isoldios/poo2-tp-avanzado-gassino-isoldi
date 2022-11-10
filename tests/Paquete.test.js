@@ -21,3 +21,10 @@ test("Paso a la siguiente etapa",()=>{
     paquete.pasarEtapa();
     expect(paquete.componenteEtapa()).toBe("Calidad");
 });
+test("Llego a destino",()=>{
+    paquete.pasarEtapa();
+    paquete.pasarEtapa();
+    paquete.pasarEtapa();
+    paquete.pasarEtapa();
+    expect(paquete.componenteEtapa()).toBe(1);
+});
