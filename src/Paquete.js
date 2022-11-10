@@ -9,5 +9,8 @@ function Paquete(destino,productos){
     this.productosDelPaquete=function(){
         return this.productos;
     }
+    this.pasarEtapa=function(){
+        return "Facturacion";
+    }
 }
 module.exports=Paquete;
