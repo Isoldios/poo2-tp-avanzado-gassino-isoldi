@@ -1,14 +1,14 @@
 const Paquete = require("../src/Paquete");
+beforeEach(()=>{
+    paquete = new Paquete(1,[["Tornillo",10],["Destornillador",2]]);
+})
 
 test("Generar paquete",()=>{
-    const paquete = new Paquete("Punto de destino 1");
-    expect(paquete.destino).toBe("Punto de destino 1");
+    expect(paquete.destino).toBe(1);
 });
 test("Etapa del paquete",()=>{
-    const paquete = new Paquete("Punto de destino 1");
     expect(paquete.componenteEtapa()).toBe("Salida Local");
 });
 test("Productos del paquete",()=>{
-    const paquete = new Paquete("Punto de destino 1",[["Tornillo",10],["Destornillador",2]]);
     expect(paquete.productosDelPaquete()).toStrictEqual([["Tornillo",10],["Destornillador",2]]);
 });
