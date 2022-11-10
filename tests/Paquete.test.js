@@ -12,3 +12,6 @@ test("Etapa del paquete",()=>{
 test("Productos del paquete",()=>{
     expect(paquete.productosDelPaquete()).toStrictEqual([["Tornillo",10],["Destornillador",2]]);
 });
+test("Paso a la siguiente etapa",()=>{
+    expect(paquete.pasarEtapa()).toBe("Facturacion");
+});
