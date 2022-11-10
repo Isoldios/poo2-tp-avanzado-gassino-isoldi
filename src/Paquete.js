@@ -1,16 +1,17 @@
 function Paquete(destino,productos){
     this.destino=destino;
     this.productos=productos;
-    this.componente="Salida Local";
+    this.componente=["Salida Local","Facturacion","Calidad","Distribucion"];
+    this.numeroComponente=0;
 
     this.componenteEtapa=function(){
-        return this.componente;
+        return this.componente[this.numeroComponente];
     }
     this.productosDelPaquete=function(){
         return this.productos;
     }
     this.pasarEtapa=function(){
-        return "Facturacion";
+        this.numeroComponente++;
     }
 }
 module.exports=Paquete;
