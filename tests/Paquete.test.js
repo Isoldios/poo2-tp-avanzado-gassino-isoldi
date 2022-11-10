@@ -6,5 +6,5 @@ test("Generar paquete",()=>{
 });
 test("Etapa del paquete",()=>{
     const paquete = new Paquete("Punto de destino 1");
-    expect(paquete.componente()).toBe("Salida Local");
+    expect(paquete.componenteEtapa()).toBe("Salida Local");
 });
