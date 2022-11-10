@@ -5,5 +5,8 @@ function Paquete(destino){
     this.componenteEtapa=function(){
         return this.componente;
     }
+    this.productos=function(){
+        return ["Tornillo","Destornillador"];
+    }
 }
 module.exports=Paquete;
