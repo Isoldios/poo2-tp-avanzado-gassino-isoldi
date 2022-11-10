@@ -13,6 +13,11 @@ test("Productos del paquete",()=>{
     expect(paquete.productosDelPaquete()).toStrictEqual([["Tornillo",10],["Destornillador",2]]);
 });
 test("Paso a la siguiente etapa",()=>{
-    paquete.pasarEtapa()
+    paquete.pasarEtapa();
     expect(paquete.componenteEtapa()).toBe("Facturacion");
+});
+test("Paso a la siguiente etapa",()=>{
+    paquete.pasarEtapa();
+    paquete.pasarEtapa();
+    expect(paquete.componenteEtapa()).toBe("Calidad");
 });
