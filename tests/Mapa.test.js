@@ -1,4 +1,6 @@
+const Mapa=require("../src/Mapa")
+
 test("Generar mapa",()=>{
-    mapa = new Mapa(filas,columnas);
-    expect(mapa.dimensiones).toBe("1 fila, 2 columnas");
+    mapa = new Mapa(1,2);
+    expect(mapa.dimensiones()).toBe("1 filas, 2 columnas");
 });
