@@ -28,7 +28,7 @@ test("Llego a destino",()=>{
     paquete.pasarEtapa();
     expect(paquete.componenteEtapa()).toBe(1);
 });
-test('throws on octopus', () => {
+test('Se pasa del destino', () => {
     expect(() => {
         paquete.pasarEtapa();
         paquete.pasarEtapa();
@@ -37,4 +37,7 @@ test('throws on octopus', () => {
         paquete.pasarEtapa();
         paquete.componenteEtapa()
     }).toThrow("Ya llego a su destino");
-  });
+});
+test("Urgencia del paquete",()=>{
+    expect(paquete.urgencia).toBe(50);
+});
