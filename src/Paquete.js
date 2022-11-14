@@ -5,7 +5,11 @@ function Paquete(destino,productos){
     this.numeroComponente=0;
 
     this.componenteEtapa=function(){
-        return this.componente[this.numeroComponente];
+        if (this.numeroComponente<this.componente.length){
+            return this.componente[this.numeroComponente];
+        }else{
+            throw new Error("Ya llego a su destino");
+        }
     }
     this.productosDelPaquete=function(){
         return this.productos;
