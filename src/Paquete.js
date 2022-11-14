@@ -1,6 +1,7 @@
-function Paquete(destino,productos){
+function Paquete(destino,productos,urgencia){
     this.destino=destino;
     this.productos=productos;
+    this.urgencia=urgencia;
     this.componente=["Salida Local","Facturacion","Calidad","Distribucion",this.destino];
     this.numeroComponente=0;
 

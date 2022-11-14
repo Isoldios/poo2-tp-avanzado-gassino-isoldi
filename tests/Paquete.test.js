@@ -1,6 +1,6 @@
 const Paquete = require("../src/Paquete");
 beforeEach(()=>{
-    paquete = new Paquete(1,[["Tornillo",10],["Destornillador",2]]);
+    paquete = new Paquete(1,[["Tornillo",10],["Destornillador",2]],50);
 })
 
 test("Generar paquete",()=>{
