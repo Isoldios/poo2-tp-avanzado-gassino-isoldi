@@ -8,16 +8,19 @@ function Mapa(filas,columnas){
         return [this.filas,this.columnas];
     }
     this.mapaCompleto = function(){
-        let mapita=[];
-        let i=0;
-        MapaModulo.filas.forEach(local => {
-            mapita.push([local]);
-            MapaModulo.columnas.forEach(componente => {
-                mapita[i].push(componente)
-            });
+        let mapita=[];let i=0;let k=0;
+
+        MapaModulo.filas.forEach(element => {
+            mapita.push([element]);
+            let j=0;
+            while(j<MapaModulo.columnas.length/MapaModulo.filas.length){
+                mapita[i].push(MapaModulo.columnas[k])
+                j++;
+                k++;
+            }
             i++;
         });
         return mapita;
-    }
+}
 }
 module.exports=Mapa;
