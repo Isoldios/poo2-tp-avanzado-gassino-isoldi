@@ -1,13 +1,19 @@
 var MapaModulo = (function(){
     let filas=[];
+    let columnas=[];
     
     function agregarLocal(local) {
         filas.push(local);
     }
+    function agregarComponente(componente) {
+        columnas.push(componente);
+    }
 
     return {
         agregarLocal: agregarLocal,
-        filas
+        agregarComponente: agregarComponente,
+        filas,
+        columnas
     };
 })();
 
