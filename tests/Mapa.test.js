@@ -56,3 +56,9 @@ test("3 filas completas: 3 locales, 3 componentes",()=>{
         [localB,facturacionB,calidadB,distribucionB],
         [localC,facturacionC,calidadC,distribucionC]]);
 });
+test('No pueden haber mas locales que componentes (n<m)', () => {
+    expect(() => {
+        localC = new Local(5,1);
+        MapaModulo.agregarLocal(localC);
+    }).toThrow("No pueden haber mas locales que componentes");
+});
