@@ -24,14 +24,14 @@ test("Agregamos Facturacion",()=>{
 test("Primer fila completa: Un local, una componente",()=>{
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA]]);
 });
-test("Primer fila completa: Un local, tres componentes",()=>{
+test("Primer fila completa: 1 local, 3 componentes",()=>{
     calidadA=new Calidad(3,0);
     distribucionA=new Distribucion(10,0);
     MapaModulo.agregarComponente(calidadA);
     MapaModulo.agregarComponente(distribucionA);
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA]]);
 });
-test("2 filas completas: 2 locales, tres componentes",()=>{
+test("2 filas completas: 2 locales, 3 componentes",()=>{
     localB = new Local(5,3);
     MapaModulo.agregarLocal(localB);
     facturacionB=new Facturacion(5,0);
@@ -40,5 +40,19 @@ test("2 filas completas: 2 locales, tres componentes",()=>{
     MapaModulo.agregarComponente(facturacionB);
     MapaModulo.agregarComponente(calidadB);
     MapaModulo.agregarComponente(distribucionB);
-    expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA],[localB,facturacionB,calidadB,distribucionB]]);
+    expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA],
+        [localB,facturacionB,calidadB,distribucionB]]);
+});
+test("3 filas completas: 3 locales, 3 componentes",()=>{
+    localC = new Local(5,2);
+    MapaModulo.agregarLocal(localC);
+    facturacionC=new Facturacion(4,0);
+    calidadC=new Calidad(3,0);
+    distribucionC=new Distribucion(25,0);
+    MapaModulo.agregarComponente(facturacionC);
+    MapaModulo.agregarComponente(calidadC);
+    MapaModulo.agregarComponente(distribucionC);
+    expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA],
+        [localB,facturacionB,calidadB,distribucionB],
+        [localC,facturacionC,calidadC,distribucionC]]);
 });

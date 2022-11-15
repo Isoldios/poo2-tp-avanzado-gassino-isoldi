@@ -12,15 +12,13 @@ function Mapa(filas,columnas){
 
         MapaModulo.filas.forEach(element => {
             mapita.push([element]);
-            let j=0;
-            while(j<MapaModulo.columnas.length/MapaModulo.filas.length){
+            for(let j=0;j<MapaModulo.columnas.length/MapaModulo.filas.length;j++){
                 mapita[i].push(MapaModulo.columnas[k])
-                j++;
                 k++;
             }
             i++;
         });
         return mapita;
-}
+    }
 }
 module.exports=Mapa;
