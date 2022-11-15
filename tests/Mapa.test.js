@@ -1,5 +1,7 @@
 const Mapa=require("../src/Mapa")
 const Local=require("../src/Local")
+const MapaModulo=require("../src/MapaModulo");
+const { filas } = require("../src/MapaModulo");
 
 beforeEach(()=>{
     mapa = new Mapa(0,0);
@@ -22,6 +24,6 @@ test('Agregar 2 locales al mapa pero ninguna componente', () => {
 });
 test("Mostrar mapa como lista de listas de locales",()=>{
     localA = new Local(0);
-    mapa.agregarLocal(localA);
-    expect(mapa.mostrarMapaPorLocal()).toStrictEqual([1,1]);
+    MapaModulo.agregarLocal(localA)
+    expect(MapaModulo.filas).toStrictEqual([localA]);
 });
