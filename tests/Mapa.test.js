@@ -36,3 +36,10 @@ test("Agregamos Facturacion",()=>{
     MapaModulo.agregarComponente(facturacionA);
     expect(MapaModulo.columnas).toStrictEqual([facturacionA]);
 });
+test("Primer fila completa: Un local, una componente",()=>{
+    localA = new Local(5,0);
+    MapaModulo.agregarLocal(localA);
+    facturacionA=new Facturacion(6,0);
+    MapaModulo.agregarComponente(facturacionA);
+    expect(MapaModulo.mapaCompleto()).toStrictEqual([[localA,facturacionA]]);
+});
