@@ -2,15 +2,15 @@ const Mapa=require("../src/Mapa")
 const Local=require("../src/Local")
 
 beforeEach(()=>{
-    mapa = new Mapa(1,2);
+    mapa = new Mapa(0,0);
 });
 test("Generar mapa",()=>{
-    expect(mapa.dimensiones()).toStrictEqual([1,2]);
+    expect(mapa.dimensiones()).toStrictEqual([0,0]);
 });
 test("Agregar local al mapa",()=>{
     localA = new Local(0);
     mapa.agregarLocal(localA);
-    expect(mapa.dimensiones()).toStrictEqual([2,2]);
+    expect(mapa.dimensiones()).toStrictEqual([1,1]);
 });
 test('Agregar 2 locales al mapa pero ninguna componente', () => {
     expect(() => {
@@ -19,4 +19,9 @@ test('Agregar 2 locales al mapa pero ninguna componente', () => {
     mapa.agregarLocal(localA);
     mapa.agregarLocal(localB);
     }).toThrow("No pueden haber mas locales que componentes");
+});
+test("Mostrar mapa como lista de listas de locales",()=>{
+    localA = new Local(0);
+    mapa.agregarLocal(localA);
+    expect(mapa.mostrarMapaPorLocal()).toStrictEqual([1,1]);
 });
