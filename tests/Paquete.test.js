@@ -42,5 +42,5 @@ test("Urgencia del paquete",()=>{
     expect(paquete.urgencia).toBe(50);
 });
 test("Id de un paquete",()=>{
-    expect(paquete.getId()).toBe(1);
+    expect(paquete.getId()).toBe(9);
 });
