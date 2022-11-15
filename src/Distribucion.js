@@ -1,13 +1,10 @@
-function Distribucion(capacidad,paquetes){
-    this.capacidad=capacidad;
-    this.paquetes=paquetes;
+const Centro=require("./Centro")
 
-    this.cantPaquetes=function(){
-        if (this.capacidad<this.paquetes){
-            throw new Error("La cola esta llena");
-        }else{
-            return this.paquetes;
-        }
-    }
+function Distribucion(capacidad,paquetes){
+    Centro.call(this,capacidad,paquetes);
+
 }
+Distribucion.prototype = Object.create(Centro.prototype);
+Distribucion.prototype.constructor = Distribucion;
+
 module.exports=Distribucion;

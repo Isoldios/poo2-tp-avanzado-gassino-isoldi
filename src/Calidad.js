@@ -1,13 +1,10 @@
-function Calidad(capacidad,paquetes){
-    this.capacidad=capacidad;
-    this.paquetes=paquetes;
+const Centro=require("./Centro")
 
-    this.cantPaquetes=function(){
-        if (this.capacidad<this.paquetes){
-            throw new Error("La cola esta llena");
-        }else{
-            return this.paquetes;
-        }
-    }
+function Calidad(capacidad,paquetes){
+    Centro.call(this,capacidad,paquetes);
+
 }
+Calidad.prototype = Object.create(Centro.prototype);
+Calidad.prototype.constructor = Calidad;
+
 module.exports=Calidad;

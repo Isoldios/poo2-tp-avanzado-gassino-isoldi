@@ -1,13 +1,10 @@
-function Facturacion(capacidad,paquetes){
-    this.capacidad=capacidad;
-    this.paquetes=paquetes;
+const Centro=require("./Centro")
 
-    this.cantPaquetes=function(){
-        if (this.capacidad<this.paquetes){
-            throw new Error("La cola esta llena");
-        }else{
-            return this.paquetes;
-        }
-    }
+function Facturacion(capacidad,paquetes){
+    Centro.call(this,capacidad,paquetes);
+
 }
+Facturacion.prototype = Object.create(Centro.prototype);
+Facturacion.prototype.constructor = Facturacion;
+
 module.exports=Facturacion;

@@ -1,7 +1,6 @@
 const Mapa=require("../src/Mapa")
 const Local=require("../src/Local")
 const MapaModulo=require("../src/MapaModulo");
-const { filas } = require("../src/MapaModulo");
 
 beforeEach(()=>{
     mapa = new Mapa(0,0);

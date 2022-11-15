@@ -1,12 +1,10 @@
-function Local(paquetes){
-    this.paquetes=paquetes;
+const Centro=require("./Centro")
 
-    this.paquetesXUniDeTiempo = function(){
-        if (this.paquetes>5){
-            throw new Error("No puede generar mas de 5 paquetes por unidad de tiempo");
-        }else{
-            return this.paquetes;
-        }
-    }
+function Local(capacidad,paquetes){
+    Centro.call(this,capacidad,paquetes);
+
 }
+Local.prototype = Object.create(Centro.prototype);
+Local.prototype.constructor = Local;
+
 module.exports=Local;
