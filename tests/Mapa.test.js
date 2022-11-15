@@ -24,3 +24,10 @@ test("Agregamos Facturacion",()=>{
 test("Primer fila completa: Un local, una componente",()=>{
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA]]);
 });
+test("Primer fila completa: Un local, tres componentes",()=>{
+    calidadA=new Calidad(3,0);
+    distribucionA=new Distribucion(10,0);
+    MapaModulo.agregarComponente(calidadA);
+    MapaModulo.agregarComponente(distribucionA);
+    expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA]]);
+});
