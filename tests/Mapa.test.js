@@ -11,14 +11,10 @@ beforeEach(()=>{
 test("Generar mapa",()=>{
     expect(mapa.dimensiones()).toStrictEqual([0,0]);
 });
-test("Mostrar mapa como lista de listas de locales",()=>{
-    localA = new Local(5,0);
-    MapaModulo.agregarLocal(localA)
-    expect(MapaModulo.filas).toStrictEqual([localA]);
-});
-test("Agregamos Facturacion",()=>{
+test("Generamos un local con una componente Facturacion",()=>{
+    localA=new Local(5,0);
     facturacionA=new Facturacion(6,0);
-    MapaModulo.agregarComponente(facturacionA);
+    MapaModulo.agregarFila(localA,[facturacionA]);
     expect(MapaModulo.columnas).toStrictEqual([facturacionA]);
 });
 test("Primer fila completa: Un local, una componente",()=>{
@@ -33,32 +29,29 @@ test("Primer fila completa: 1 local, 3 componentes",()=>{
 });
 test("2 filas completas: 2 locales, 3 componentes",()=>{
     localB = new Local(5,3);
-    MapaModulo.agregarLocal(localB);
     facturacionB=new Facturacion(5,0);
     calidadB=new Calidad(2,0);
     distribucionB=new Distribucion(20,0);
-    MapaModulo.agregarComponente(facturacionB);
-    MapaModulo.agregarComponente(calidadB);
-    MapaModulo.agregarComponente(distribucionB);
+    MapaModulo.agregarFila(localB,[facturacionB,calidadB,distribucionB]);
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA],
         [localB,facturacionB,calidadB,distribucionB]]);
 });
 test("3 filas completas: 3 locales, 3 componentes",()=>{
     localC = new Local(5,2);
-    MapaModulo.agregarLocal(localC);
     facturacionC=new Facturacion(4,0);
     calidadC=new Calidad(3,0);
     distribucionC=new Distribucion(25,0);
-    MapaModulo.agregarComponente(facturacionC);
-    MapaModulo.agregarComponente(calidadC);
-    MapaModulo.agregarComponente(distribucionC);
+    MapaModulo.agregarFila(localC,[facturacionC,calidadC,distribucionC]);
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA],
         [localB,facturacionB,calidadB,distribucionB],
         [localC,facturacionC,calidadC,distribucionC]]);
 });
 test('No pueden haber mas locales que componentes (n<m)', () => {
     expect(() => {
-        localC = new Local(5,1);
-        MapaModulo.agregarLocal(localC);
+        localD = new Local(5,1);
+        facturacionD=new Facturacion(4,0);
+        calidadD=new Calidad(3,0);
+        distribucionD=new Distribucion(25,0);
+        MapaModulo.agregarFila(localD,[facturacionD,calidadD,distribucionD]);
     }).toThrow("No pueden haber mas locales que componentes");
 });
