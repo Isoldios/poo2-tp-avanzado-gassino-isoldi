@@ -66,3 +66,15 @@ test("Mover los paquetes por la matriz",()=>{
     MapaModulo.agregarPaquete(paquete,localA)
     expect(mapa.moverPaquete(paquete,facturacionA)).toBe(true);
 });
+test("Muevo un paquete del localA y el otro paquete queda en localA",()=>{
+    productos=[]
+    destornillador=new Producto("Destornillador",3);
+    tornillo=new Producto("Tornillo",40);
+    productos.push(destornillador,tornillo)
+    paquete = new Paquete(1,productos,"Muy rapido");
+    paquete1 = new Paquete(1,productos,"Rapido");
+    MapaModulo.agregarPaquete(paquete,localA);
+    MapaModulo.agregarPaquete(paquete1,localA);
+    mapa.moverPaquete(paquete,facturacionA)
+    expect(localA.paquetes).toStrictEqual([paquete1]);
+});
