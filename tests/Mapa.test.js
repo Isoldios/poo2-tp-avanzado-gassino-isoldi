@@ -3,6 +3,8 @@ const Local=require("../src/Local")
 const Distribucion=require("../src/Distribucion")
 const Facturacion=require("../src/Facturacion")
 const Calidad=require("../src/Calidad")
+const Paquete=require("../src/Paquete")
+const Producto=require("../src/Producto")
 const MapaModulo=require("../src/MapaModulo");
 
 beforeEach(()=>{
@@ -28,7 +30,7 @@ test("Primer fila completa: 1 local, 3 componentes",()=>{
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA]]);
 });
 test("2 filas completas: 2 locales, 3 componentes",()=>{
-    localB = new Local(5,3);
+    localB = new Local(5,0);
     facturacionB=new Facturacion(5,0);
     calidadB=new Calidad(2,0);
     distribucionB=new Distribucion(20,0);
@@ -37,7 +39,7 @@ test("2 filas completas: 2 locales, 3 componentes",()=>{
         [localB,facturacionB,calidadB,distribucionB]]);
 });
 test("3 filas completas: 3 locales, 3 componentes",()=>{
-    localC = new Local(5,2);
+    localC = new Local(5,0);
     facturacionC=new Facturacion(4,0);
     calidadC=new Calidad(3,0);
     distribucionC=new Distribucion(25,0);
@@ -48,10 +50,19 @@ test("3 filas completas: 3 locales, 3 componentes",()=>{
 });
 test('No pueden haber mas locales que componentes (n<m)', () => {
     expect(() => {
-        localD = new Local(5,1);
+        localD = new Local(5,0);
         facturacionD=new Facturacion(4,0);
         calidadD=new Calidad(3,0);
         distribucionD=new Distribucion(25,0);
         MapaModulo.agregarFila(localD,[facturacionD,calidadD,distribucionD]);
     }).toThrow("No pueden haber mas locales que componentes");
+});
+test("Mover los paquetes por la matriz",()=>{
+    productos=[]
+    destornillador=new Producto("Destornillador",3);
+    tornillo=new Producto("Tornillo",40);
+    productos.push(destornillador,tornillo)
+    paquete = new Paquete(1,productos,"Muy rapido");
+    MapaModulo.agregarPaquete(paquete,localA)
+    expect(mapa.moverPaquete(paquete,facturacionA)).toBe(true);
 });
