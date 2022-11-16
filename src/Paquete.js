@@ -25,7 +25,7 @@ var Paquete = (function(){
             return id;
         }
     }
-    return newPaquete;
+    return newPaquete; 
 }) ();
 
 module.exports = Paquete;
