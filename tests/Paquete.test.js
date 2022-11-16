@@ -21,3 +21,6 @@ test("Urgencia del paquete",()=>{
 test("Id de un paquete",()=>{
     expect(paquete.getId()).toBe(4);
 });
+test("Tiempo estimado del paquete para llegar en urgencia Muy Rapido",()=>{
+    expect(paquete.getUrgencia()).toBe(MapaModulo.columnas.length/MapaModulo.filas.length);
+});

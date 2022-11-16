@@ -3,10 +3,10 @@ function Centro(capacidad,paquetes){
     this.paquetes=paquetes;
 
     this.cantPaquetes=function(){
-        if (this.capacidad<this.paquetes){
+        if (this.capacidad<this.paquetes.length){
             throw new Error("La cola esta llena");
         }else{
-            return this.paquetes;
+            return this.paquetes.length;
         }
     }
 }
