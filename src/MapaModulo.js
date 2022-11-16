@@ -1,6 +1,7 @@
 var MapaModulo = (function(){
     let filas=[];
     let columnas=[];
+    let T=0;
     
     function agregarLocal(local) {
         filas.push(local);
@@ -25,6 +26,9 @@ var MapaModulo = (function(){
             local.paquetes.push(paquete);
             paquete.pasarTiempo();
         }
+    }
+    function cambioDeTiempo(){
+        return T++;
     }
     return {
         agregarComponente: agregarComponente,
