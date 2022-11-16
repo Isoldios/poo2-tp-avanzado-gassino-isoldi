@@ -19,9 +19,17 @@ var MapaModulo = (function(){
             throw new Error("No pueden haber mas locales que componentes");
         }
     }
+    
+    function agregarPaquete(paquete,local){
+        if (local.validarAgregarPaquete()){
+            local.paquetes.push(paquete);
+            paquete.pasarTiempo();
+        }
+    }
     return {
         agregarComponente: agregarComponente,
-        agregarFila,
+        agregarFila:agregarFila,
+        agregarPaquete:agregarPaquete,
         filas,
         columnas,
     };

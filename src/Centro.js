@@ -9,5 +9,11 @@ function Centro(capacidad,paquetes){
             return this.paquetes.length;
         }
     }
+    this.validarAgregarPaquete=function(){
+        var res=true;
+        if (this.capacidad<=this.paquetes.length)
+            res=false;
+        return res;
+    }
 }
 module.exports=Centro;

@@ -14,8 +14,8 @@ test("Generar mapa",()=>{
     expect(mapa.dimensiones()).toStrictEqual([0,0]);
 });
 test("Generamos un local con una componente Facturacion",()=>{
-    localA=new Local(5,0);
-    facturacionA=new Facturacion(6,0);
+    localA=new Local(5,[]);
+    facturacionA=new Facturacion(6,[]);
     MapaModulo.agregarFila(localA,[facturacionA]);
     expect(MapaModulo.columnas).toStrictEqual([facturacionA]);
 });
@@ -23,26 +23,26 @@ test("Primer fila completa: Un local, una componente",()=>{
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA]]);
 });
 test("Primer fila completa: 1 local, 3 componentes",()=>{
-    calidadA=new Calidad(3,0);
-    distribucionA=new Distribucion(10,0);
+    calidadA=new Calidad(3,[]);
+    distribucionA=new Distribucion(10,[]);
     MapaModulo.agregarComponente(calidadA);
     MapaModulo.agregarComponente(distribucionA);
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA]]);
 });
 test("2 filas completas: 2 locales, 3 componentes",()=>{
-    localB = new Local(5,0);
-    facturacionB=new Facturacion(5,0);
-    calidadB=new Calidad(2,0);
-    distribucionB=new Distribucion(20,0);
+    localB = new Local(5,[]);
+    facturacionB=new Facturacion(5,[]);
+    calidadB=new Calidad(2,[]);
+    distribucionB=new Distribucion(20,[]);
     MapaModulo.agregarFila(localB,[facturacionB,calidadB,distribucionB]);
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA],
         [localB,facturacionB,calidadB,distribucionB]]);
 });
 test("3 filas completas: 3 locales, 3 componentes",()=>{
-    localC = new Local(5,0);
-    facturacionC=new Facturacion(4,0);
-    calidadC=new Calidad(3,0);
-    distribucionC=new Distribucion(25,0);
+    localC = new Local(5,[]);
+    facturacionC=new Facturacion(4,[]);
+    calidadC=new Calidad(3,[]);
+    distribucionC=new Distribucion(25,[]);
     MapaModulo.agregarFila(localC,[facturacionC,calidadC,distribucionC]);
     expect(mapa.mapaCompleto()).toStrictEqual([[localA,facturacionA,calidadA,distribucionA],
         [localB,facturacionB,calidadB,distribucionB],
@@ -50,10 +50,10 @@ test("3 filas completas: 3 locales, 3 componentes",()=>{
 });
 test('No pueden haber mas locales que componentes (n<m)', () => {
     expect(() => {
-        localD = new Local(5,0);
-        facturacionD=new Facturacion(4,0);
-        calidadD=new Calidad(3,0);
-        distribucionD=new Distribucion(25,0);
+        localD = new Local(5,[]);
+        facturacionD=new Facturacion(4,[]);
+        calidadD=new Calidad(3,[]);
+        distribucionD=new Distribucion(25,[]);
         MapaModulo.agregarFila(localD,[facturacionD,calidadD,distribucionD]);
     }).toThrow("No pueden haber mas locales que componentes");
 });
