@@ -42,5 +42,5 @@ test("Tiempo estimado del paquete para llegar en urgencia Normal",()=>{
 test("El paquete llego a tiempo",()=>{
     MapaModulo.filas=["LocalA","LocalB"];
     MapaModulo.columnas=["FacturacionA","CalidadA","FacturacionB","CalidadB"]
-    expect(paquete.tiempoEmpleado()).toBe((MapaModulo.columnas.length/MapaModulo.filas.length)>=paquete.tiempo);
+    expect(paquete.tiempoEmpleado()).toBe(paquete.getUrgencia()>=paquete.tiempo);
 });

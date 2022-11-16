@@ -29,6 +29,17 @@ var Paquete = (function(){
             }
             return tiempoEstimado;
         }
+
+        this.tiempo=0;
+        this.tiempoEmpleado=function(){
+            var res=true;
+            if (this.tiempo>this.getUrgencia())
+                res=false;
+            return res
+        }
+        this.pasarTiempo=function(){
+            return this.tiempo++;
+        }
     }
     return newPaquete;
 }) ();
