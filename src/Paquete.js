@@ -23,6 +23,9 @@ var Paquete = (function(){
                 case "Rapido":
                     tiempoEstimado=(MapaModulo.columnas.length/MapaModulo.filas.length)*1.5;
                     break;
+                case "Normal":
+                    tiempoEstimado=(MapaModulo.columnas.length/MapaModulo.filas.length)*2;
+                    break;
             }
             return tiempoEstimado;
         }

@@ -37,6 +37,5 @@ test("Tiempo estimado del paquete para llegar en urgencia Rapido",()=>{
 test("Tiempo estimado del paquete para llegar en urgencia Normal",()=>{
     MapaModulo.filas=["LocalA","LocalB"];
     MapaModulo.columnas=["FacturacionA","CalidadA","FacturacionB","CalidadB"]
-    console.log(MapaModulo.columnas.length/MapaModulo.filas.length)
     expect(paquete3.getUrgencia()).toBe((MapaModulo.columnas.length/MapaModulo.filas.length)*2);
 });
