@@ -27,3 +27,6 @@ test("Tiempo estimado del paquete para llegar en urgencia Muy Rapido",()=>{
     MapaModulo.columnas=["FacturacionA","CalidadA","FacturacionB","CalidadB"]
     expect(paquete.getUrgencia()).toBe(MapaModulo.cantComponentes);
 });
+test("Tiempo estimado del paquete para llegar en urgencia Rapido",()=>{
+    expect(paquete.getUrgencia()).toBe(MapaModulo.cantComponentes*1.5);
+});
