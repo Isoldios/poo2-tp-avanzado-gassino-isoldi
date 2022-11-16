@@ -1,3 +1,5 @@
+const MapaModulo=require("../src/MapaModulo");
+
 var Paquete = (function(){
     var id=0;
     var newPaquete =function(destino,productos,urgencia){
@@ -11,6 +13,21 @@ var Paquete = (function(){
         }
         this.getId=function(){
             return id;
+        }
+        this.getUrgencia=function(){
+            var tiempoEstimado=0;
+            switch(this.urgencia){
+                case "Muy rapido":
+                    tiempoEstimado=MapaModulo.cantComponentes;
+                    break;
+                case "Rapido":
+                    tiempoEstimado=MapaModulo.cantComponentes*1.5;
+                    break;
+                case "Normal":
+                    tiempoEstimado=MapaModulo.cantComponentes*2;
+                    break;
+            }
+            return tiempoEstimado;
         }
     }
     return newPaquete;

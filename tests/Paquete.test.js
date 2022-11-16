@@ -1,3 +1,4 @@
+const MapaModulo = require("../src/MapaModulo");
 const Paquete = require("../src/Paquete");
 const Producto = require("../src/Producto");
 
@@ -22,5 +23,7 @@ test("Id de un paquete",()=>{
     expect(paquete.getId()).toBe(4);
 });
 test("Tiempo estimado del paquete para llegar en urgencia Muy Rapido",()=>{
-    expect(paquete.getUrgencia()).toBe(MapaModulo.columnas.length/MapaModulo.filas.length);
+    MapaModulo.filas=["LocalA,LocalB"];
+    MapaModulo.columnas=["FacturacionA","CalidadA","FacturacionB","CalidadB"]
+    expect(paquete.getUrgencia()).toBe(MapaModulo.cantComponentes);
 });

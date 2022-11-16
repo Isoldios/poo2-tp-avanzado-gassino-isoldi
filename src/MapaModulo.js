@@ -1,6 +1,7 @@
 var MapaModulo = (function(){
     let filas=[];
     let columnas=[];
+    let cantComponentes = columnas.length/filas.length
     
     function agregarLocal(local) {
         filas.push(local);
@@ -23,7 +24,8 @@ var MapaModulo = (function(){
         agregarComponente: agregarComponente,
         agregarFila,
         filas,
-        columnas
+        columnas,
+        cantComponentes
     };
 })();
 
