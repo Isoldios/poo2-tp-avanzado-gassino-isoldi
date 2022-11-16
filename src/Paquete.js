@@ -18,13 +18,10 @@ var Paquete = (function(){
             var tiempoEstimado=0;
             switch(this.urgencia){
                 case "Muy rapido":
-                    tiempoEstimado=MapaModulo.cantComponentes;
+                    tiempoEstimado=MapaModulo.columnas.length/MapaModulo.filas.length;
                     break;
                 case "Rapido":
-                    tiempoEstimado=MapaModulo.cantComponentes*1.5;
-                    break;
-                case "Normal":
-                    tiempoEstimado=MapaModulo.cantComponentes*2;
+                    tiempoEstimado=(MapaModulo.columnas.length/MapaModulo.filas.length)*1.5;
                     break;
             }
             return tiempoEstimado;
